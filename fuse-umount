@@ -1,0 +1,3 @@
+#!/bin/sh
+ERROR=$( { fusermount -u $1; } 2>&1 )
+test "$ERROR" && zenity --warning --text="$ERROR"
