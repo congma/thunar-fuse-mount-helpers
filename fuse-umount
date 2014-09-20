@@ -1,3 +1,9 @@
 #!/bin/sh
 ERROR=$( { fusermount -u $1; } 2>&1 )
-test "$ERROR" && zenity --warning --text="$ERROR"
+if [ $? -eq 0 ]; then
+    exit 0
+else
+    test "$ERROR" && MSG="$ERROR" || MSG="Unknown error while unmounting."
+    zenity --warning --text="$MSG"
+    exit 1
+fi
