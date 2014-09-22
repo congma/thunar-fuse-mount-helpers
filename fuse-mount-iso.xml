@@ -1,0 +1,9 @@
+<action>                                                                        
+        <icon>media-optical-cd-audio-symbolic</icon>                            
+        <name>Mount ISO Image with FUSE</name>                                  
+	<command>$UCA_PATH/fuse-mount-iso %f</command>
+        <description>Mount ISO file</description>                               
+        <patterns>*.iso;*.ISO</patterns>                                        
+        <startup-notify/>                                                       
+        <other-files/>                                                          
+</action>

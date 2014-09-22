@@ -1,0 +1,9 @@
+<action>                                                                        
+        <icon>media-eject</icon>                                                
+        <name>FUSE Unmount</name>                                               
+        <command>$UCA_PATH/fuse-umount %f</command>   
+        <description>Unmount FUSE mount-point directory</description>           
+        <patterns>*</patterns>                                                  
+        <startup-notify/>                                                       
+        <directories/>                                                          
+</action>  
