@@ -2,7 +2,6 @@
 MOUNTPOINT="$( zenity --file-selection \
     --title="Select mount point" --directory --filename="$HOME/media/" )"
 if [ "$?" -ne 0 ]; then
-    zenity --error --text="Error selecting mount point."
     exit 1
 fi
 if ERROR="$( { fuseiso "$1" "$MOUNTPOINT"; } 2>&1 )"; then
