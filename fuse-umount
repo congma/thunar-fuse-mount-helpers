@@ -2,7 +2,11 @@
 if ERROR="$( { fusermount -u "$1"; } 2>&1 )"; then
     exit 0
 else
-    [ "$ERROR" ] && MSG="$ERROR" || MSG="Unknown error while unmounting."
+    if [ "$ERROR" ]; then
+	MSG="$ERROR"
+    else
+	MSG="Unknown error while unmounting."
+    fi
     zenity --warning --text="$MSG"
     exit 1
 fi
