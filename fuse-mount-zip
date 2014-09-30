@@ -1,0 +1,17 @@
+#!/bin/sh
+MOUNTPOINT="$( zenity --file-selection \
+    --title="Select mount point" --directory --filename="$HOME/media/" )"
+if [ "$?" -ne 0 ]; then
+    exit 1
+fi
+U="$( id -u )"
+G="$( id -g )"
+if ERROR="$( { fuse-zip -o"noatime,uid=$U,gid=$G" "$1" "$MOUNTPOINT"; } 2>&1 )"
+then
+    exit 0
+else
+    [ "$ERROR" ] && MSG="$ERROR" || \
+	MSG="Unknown error while mounting $1 to $MOUNTPOINT"
+    zenity --warning --text="$MSG"
+    exit 1
+fi

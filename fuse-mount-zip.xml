@@ -1,0 +1,9 @@
+<action>
+    <icon>package-x-generic</icon>
+    <name>Mount Zip Archive as Filesystem with FUSE</name>
+    <command>$UCA_PATH/fuse-mount-zip %f</command>
+    <description>Mount Zip archive as filesystem</description>
+    <patterns>*.zip;*.ZIP</patterns>
+    <startup-notify/>
+    <other-files/>                                                          
+</action>
