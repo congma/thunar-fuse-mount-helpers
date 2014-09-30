@@ -15,8 +15,11 @@ if ERROR="$( { fuse-zip -o"noatime,uid=$U,gid=$G" "$1" "$MOUNTPOINT"; } 2>&1 )"
 then
     exit 0
 else
-    [ "$ERROR" ] && MSG="$ERROR" || \
+    if [ "$ERROR" ]; then
+	MSG="$ERROR"
+    else
 	MSG="Unknown error while mounting $1 to $MOUNTPOINT"
+    fi
     zenity --warning --text="$MSG"
     exit 1
 fi
