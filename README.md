@@ -31,6 +31,8 @@ dialog box.  Default mount point: `$HOME/media`.
 
 *  The [FuseISO][fuseiso] package.
 
+* * *
+
 ### `fuse-mount-zip` ###
 
 Similar to [`fuse-mount-iso`](#fuse-mount-iso), but for Zip archives.  The
@@ -40,9 +42,13 @@ mounted filesystem will be writeable.
 
 *  The [fuse-zip][fusezip] package.
 
+* * *
+
 ### `fuse-umount` ###
 
 This script unmounts a FUSE mount point.
+
+* * *
 
 ## BUGS ##
 
