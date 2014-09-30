@@ -4,6 +4,11 @@ MOUNTPOINT="$( zenity --file-selection \
 if [ "$?" -ne 0 ]; then
     exit 1
 fi
+M="$( find "$MOUNTPOINT" -maxdepth 0 -type d -empty )"
+if [ -z "$M" ]; then
+    zenity --error --text="Error: $MOUNTPOINT is not an empty directory"
+    exit 1
+fi
 U="$( id -u )"
 G="$( id -g )"
 if ERROR="$( { fuse-zip -o"noatime,uid=$U,gid=$G" "$1" "$MOUNTPOINT"; } 2>&1 )"

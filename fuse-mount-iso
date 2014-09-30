@@ -4,6 +4,11 @@ MOUNTPOINT="$( zenity --file-selection \
 if [ "$?" -ne 0 ]; then
     exit 1
 fi
+M="$( find "$MOUNTPOINT" -maxdepth 0 -type d -empty )"
+if [ -z "$M" ]; then
+    zenity --error --text="Error: $MOUNTPOINT is not an empty directory"
+    exit 1
+fi
 if ERROR="$( { fuseiso "$1" "$MOUNTPOINT"; } 2>&1 )"; then
     exit 0
 else
