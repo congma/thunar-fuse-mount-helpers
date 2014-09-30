@@ -31,7 +31,7 @@ dialog box.  Default mount point: `$HOME/media`.
 
 *  The [FuseISO][fuseiso] package.
 
-### `fuse-mount-zip ###
+### `fuse-mount-zip` ###
 
 Similar to [`fuse-mount-iso`](#fuse-mount-iso), but for Zip archives.  The
 mounted filesystem will be writeable.
